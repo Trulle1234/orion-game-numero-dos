@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bffs0yqr2jdrx"]
+
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://scenes/player.tscn" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://xukciel3osfg" path="res://scrips/level.gd" id="1_w8frs"]
+[ext_resource type="PackedScene" uid="uid://2oqfqxx5b61g" path="res://scenes/enemy.tscn" id="2_w7c3h"]
+
+[node name="Level" type="Node2D" unique_id=645687155]
+script = ExtResource("1_w8frs")
+
+[node name="Player" parent="." unique_id=1499441316 instance=ExtResource("1_u52ul")]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+
+[node name="Enemy" parent="." unique_id=638015216 instance=ExtResource("2_w7c3h")]
+position = Vector2(1644, 542)
