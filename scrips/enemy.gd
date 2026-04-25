@@ -7,14 +7,13 @@ var health = 1
 
 func _ready():	
 	add_to_group("enemy")
-	modulate = 	Color(1.5, 0.2, 0.2)
 	player = get_tree().get_first_node_in_group("player")
 
 func take_damage(hp):
 	health -= hp
 	modulate = 	Color(2.5, 0.2, 0.2)
 	await get_tree().create_timer(0.15).timeout
-	modulate = 	Color(1.5, 0.2, 0.2)
+	modulate = 	Color(1, 1, 1)
 	
 	if health <= 0:
 		queue_free()
