@@ -9,6 +9,9 @@ const ROTATION_OFFSET = 90
 
 var health = 10
 
+func _ready() -> void:
+	add_to_group("player")
+
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	velocity = Vector2()
@@ -37,7 +40,11 @@ func _process(delta: float) -> void:
 	if kill_box.has_overlapping_bodies() and Level.damage_timer <= 0:
 		health -= 1
 		Level.damage_timer = Level.damage_cooldown
-
+		
+		modulate = 	Color(2.5, 0.2, 0.2)
+		await get_tree().create_timer(0.15).timeout
+		modulate = 	Color(1, 1, 1)
+		
 		if health <= 0:
 			print("game over")
 
