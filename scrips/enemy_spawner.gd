@@ -19,9 +19,11 @@ func _process(delta: float) -> void:
 		Level.wave += 1
 		new_wave.emit()
 		
-		enemies += Level.wave * 2
+		enemies += int(Level.wave * 1.5)
 		spawn_time -= Level.wave * 0.02
 		if spawn_time <= 0.05: spawn_time = 0.05
+		Level.enemy_start_health += 0.5
+		if Level.enemy_start_health >= 10: Level.enemy_start_health = 10
 		
 		create_wave(enemies, spawn_time)
 		
@@ -32,7 +34,6 @@ func create_wave(e, time):
 		
 func spawn_enemy_in_circle():	
 	var enemy = enemy_scene.instantiate()
-	
 	var angle = randf_range(0, 2 * PI)
 	
 	var spawn_pos = Vector2(

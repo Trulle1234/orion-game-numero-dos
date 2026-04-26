@@ -7,11 +7,14 @@ extends Control
 
 @onready var shooting_button: Button = $ShootingButton
 @onready var cannon_button: Button = $CannonButton
+@onready var health_bar: ProgressBar = $HealthBar
 
 signal add_cannon
 
 func _process(delta: float) -> void:
 	coins.text = str(Level.coins)
+	
+	health_bar.value = Level.health
 	
 	if Level.coins < 32 and Level.shoot_cooldown >= 0.01:
 		shooting_button.disabled = true
@@ -22,7 +25,7 @@ func _process(delta: float) -> void:
 		cannon_button.disabled = true
 	else:
 		cannon_button.disabled = false
-		
+
 func _on_enemy_spawner_new_wave() -> void:
 	animation_player.play("wave")
 	label.text = "WAVE " + str(Level.wave)

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://deti1jhqx7on3"]
+
+[ext_resource type="Script" uid="uid://cexa8er31264i" path="res://scrips/game_over.gd" id="1_xeevv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nqlu"]
+bg_color = Color(0.2694079, 0.6553549, 0.77072835, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeevv"]
+bg_color = Color(0.51967627, 0.35968596, 0.769533, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqhvx"]
+bg_color = Color(0.5320642, 0.6028939, 0.89179134, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbwuq"]
+bg_color = Color(0.2378, 0.37467992, 0.58, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="GameOver" type="Control" unique_id=1906305620]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xeevv")
+
+[node name="Label" type="Label" parent="." unique_id=1351449255]
+z_index = 99
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 216
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RespawnButton" type="Button" parent="." unique_id=59484471]
+z_index = 99
+layout_mode = 1
+offset_left = 796.0
+offset_top = 734.0
+offset_right = 1190.0
+offset_bottom = 846.0
+theme_override_colors/font_color = Color(0.06382712, 0.05159677, 0.14984944, 1)
+theme_override_colors/font_pressed_color = Color(0.0627451, 0.050980393, 0.14901961, 1)
+theme_override_colors/font_hover_color = Color(0.0627451, 0.050980393, 0.14901961, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nqlu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xeevv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wqhvx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_tbwuq")
+text = "Respawn"
+
+[connection signal="pressed" from="RespawnButton" to="." method="_on_respawn_button_pressed"]

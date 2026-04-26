@@ -87,6 +87,30 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdt2y"]
+bg_color = Color(0.84880614, 0.8182559, 0.94432557, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wm3ai"]
+bg_color = Color(0.8598246, 0.3269795, 0.43671423, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [node name="UI" type="Control" unique_id=94796074]
 layout_mode = 3
 anchors_preset = 15
@@ -156,6 +180,21 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 82
 text = "0"
 horizontal_alignment = 2
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1582152291]
+z_index = 99
+layout_mode = 1
+offset_left = 720.0
+offset_top = 25.0
+offset_right = 1260.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_gdt2y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wm3ai")
+max_value = 10.0
+step = 1.0
+show_percentage = false
 
 [connection signal="pressed" from="CannonButton" to="." method="_on_cannon_button_pressed"]
 [connection signal="pressed" from="ShootingButton" to="." method="_on_shooting_button_pressed"]

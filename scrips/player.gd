@@ -3,11 +3,11 @@ extends CharacterBody2D
 @onready var kill_box: Area2D = $KillBox
 
 const CANNON = preload("uid://djbqbivgnpoyj")
+var cannons = []
 
 const ROTATION_OFFSET = 90
 
-var health = 10
-var cannons = []
+signal game_over
 
 func _ready() -> void:
 	var c = CANNON.instantiate()
@@ -43,15 +43,15 @@ func _process(delta: float) -> void:
 		Level.damage_timer -= delta
 
 	if kill_box.has_overlapping_bodies() and Level.damage_timer <= 0:
-		health -= 1
+		Level.health -= 1
 		Level.damage_timer = Level.damage_cooldown
 		
-		modulate = 	Color(2.5, 0.2, 0.2)
+		modulate = 	Color(3, 0.2, 0.2)
 		await get_tree().create_timer(0.15).timeout
 		modulate = 	Color(1, 1, 1)
 		
-		if health <= 0:
-			print("game over")
+		if Level.health <= 0:
+			game_over.emit()
 
 func _on_ui_add_cannon() -> void:
 	Level.cannons += 1

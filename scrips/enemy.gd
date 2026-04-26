@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var area_2d: Area2D = $Area2D
 var player: CharacterBody2D
 
-var health = 1
+var health = int(Level.enemy_start_health)
 
 func _ready():	
 	add_to_group("enemy")
@@ -12,7 +12,7 @@ func _ready():
 func take_damage(hp):
 	health -= hp
 	modulate = 	Color(2.5, 0.2, 0.2)
-	await get_tree().create_timer(0.15).timeout
+	await get_tree().create_timer(0.1).timeout
 	modulate = 	Color(1, 1, 1)
 	
 	if health <= 0:

@@ -1,6 +1,7 @@
 extends Node2D
 
 var player_speed = 200
+var health = 10
 var strength = 1
 var coins = 0
 var cannons = 1
@@ -13,6 +14,28 @@ var damage_timer = 0
 
 var enemy_spawn_radius = 1150
 var enemy_speed = 120
+var enemy_start_health = 1
 
 var game_state = "init_first_wave"
 var wave = 0
+
+func restart():
+	player_speed = 200
+	health = 10
+	strength = 1
+	coins = 0
+	cannons = 1
+
+	shoot_cooldown = 0.15
+	shoot_timer = shoot_cooldown
+
+	damage_timer = 0
+
+	enemy_spawn_radius = 1150
+	enemy_speed = 120
+	enemy_start_health = 1
+
+	game_state = "init_first_wave"
+	wave = 0
+	
+	get_tree().reload_current_scene()
