@@ -1,15 +1,19 @@
 extends CharacterBody2D
 
 @onready var kill_box: Area2D = $KillBox
-@onready var bullet_start: Node2D = $BulletStart
 
-const BULLET = preload("uid://b5r1ketveva1g")
+const CANNON = preload("uid://djbqbivgnpoyj")
 
 const ROTATION_OFFSET = 90
 
 var health = 10
+var cannons = []
 
 func _ready() -> void:
+	var c = CANNON.instantiate()
+	add_child(c)
+	cannons = get_tree().get_nodes_in_group("cannon")
+	
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
@@ -26,7 +30,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("shoot"):
 		if Level.shoot_timer < 0:
-			shoot()
+			for c in cannons:
+				c.shoot()
 			Level.shoot_timer = Level.shoot_cooldown
 		else:
 			Level.shoot_timer -= delta
@@ -48,7 +53,20 @@ func _process(delta: float) -> void:
 		if health <= 0:
 			print("game over")
 
-func shoot():
-	var b = BULLET.instantiate()
-	get_tree().current_scene.add_child(b)
-	b.global_transform = bullet_start.global_transform
+func _on_ui_add_cannon() -> void:
+	Level.cannons += 1
+
+	var c = CANNON.instantiate()
+	add_child(c)
+
+	cannons = get_tree().get_nodes_in_group("cannon")
+	update_cannon_rotations()
+	
+func update_cannon_rotations() -> void:
+	var count = cannons.size()
+	if count == 0:
+		return
+
+	for i in range(count):
+		var c = cannons[i]
+		c.rotation_degrees = i * 30.0 - count / 2.0 * 30.0 + 15

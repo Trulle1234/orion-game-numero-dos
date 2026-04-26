@@ -16,6 +16,7 @@ func take_damage(hp):
 	modulate = 	Color(1, 1, 1)
 	
 	if health <= 0:
+		Level.coins += 1
 		queue_free()
 	
 func _physics_process(delta: float) -> void:

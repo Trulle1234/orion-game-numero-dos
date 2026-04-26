@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://scenes/player.tscn" id="1_u52ul"]
 [ext_resource type="Script" uid="uid://xukciel3osfg" path="res://scrips/level.gd" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://8d60jp6c8fm2" path="res://scenes/enemy_spawner.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://c4r7s5ymxpdao" path="res://scenes/ui.tscn" id="4_ppgk2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_w8frs"]
 b = Vector2(1920, 0)
@@ -37,3 +38,11 @@ shape = SubResource("SegmentShape2D_mx8sn")
 [node name="Right" type="CollisionShape2D" parent="Border" unique_id=2134809051]
 position = Vector2(2000, 1080)
 shape = SubResource("SegmentShape2D_mx8sn")
+
+[node name="UI" parent="." unique_id=94796074 instance=ExtResource("4_ppgk2")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=760119784]
+position = Vector2(960, 540)
+
+[connection signal="new_wave" from="EnemySpawner" to="UI" method="_on_enemy_spawner_new_wave"]
+[connection signal="add_cannon" from="UI" to="Player" method="_on_ui_add_cannon"]

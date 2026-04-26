@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://djbqbivgnpoyj"]
+
+[ext_resource type="Texture2D" uid="uid://b8oj4niuf0ax4" path="res://assets/cannon.png" id="1_xuqfy"]
+[ext_resource type="Script" uid="uid://vffk7peqak0" path="res://scrips/cannon.gd" id="2_pxhkx"]
+
+[node name="Cannon" type="Sprite2D" unique_id=1060286726]
+z_index = 2
+position = Vector2(-1.1920929e-07, 0)
+scale = Vector2(0.357, 0.357)
+texture = ExtResource("1_xuqfy")
+offset = Vector2(140.05603, 1.669598e-07)
+script = ExtResource("2_pxhkx")
+
+[node name="BulletStart" type="Node2D" parent="." unique_id=245758373]
+position = Vector2(252.10083, -1.6695978e-07)
+scale = Vector2(2.8011205, 2.8011205)
