@@ -3,8 +3,14 @@ extends Node2D
 var enemy_scene = preload("res://scenes/enemy.tscn")
 
 func _ready() -> void:
-	for i in range(10):
+	for i in range(16):
+		Level.wave = 1
 		spawn_enemy_in_circle()
+		await get_tree().create_timer(0.2).timeout
+
+func _physics_process(delta: float) -> void:
+	if get_tree().get_node_count_in_group("enemy") == 0 and Level.wave > 0:
+		print("wave compleate")
 
 func spawn_enemy_in_circle():	
 	var enemy = enemy_scene.instantiate()

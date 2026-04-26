@@ -9,13 +9,14 @@ height = 126.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ra3w"]
 radius = 62.0
-height = 150.0
+height = 158.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1022806793]
 collision_layer = 2
 script = ExtResource("1_4gyqm")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=897146031]
+z_index = 1
 position = Vector2(1.9073486e-06, -4.7683716e-07)
 scale = Vector2(0.36730763, 0.36730772)
 texture = ExtResource("2_md0e3")

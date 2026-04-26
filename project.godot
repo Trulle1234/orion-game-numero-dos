@@ -56,3 +56,4 @@ down={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.09239999, 0.44, 0.2662, 1)

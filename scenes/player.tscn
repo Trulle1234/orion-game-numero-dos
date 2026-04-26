@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://scrips/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ws85ss5veam3" path="res://assets/tank.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://b8oj4niuf0ax4" path="res://assets/cannon.png" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
 radius = 36.0
 height = 102.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 51.0
-height = 116.0
+height = 124.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1499441316]
 z_index = 1
@@ -17,12 +18,18 @@ collision_mask = 2
 script = ExtResource("1_onrkg")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=771225576]
-position = Vector2(28, -1)
+position = Vector2(-1.9073486e-06, 0)
 scale = Vector2(0.35654238, 0.3565424)
 texture = ExtResource("2_g2els")
 
+[node name="Cannon" type="Sprite2D" parent="." unique_id=160578624]
+z_index = 2
+position = Vector2(50, 5.9604645e-08)
+scale = Vector2(0.357, 0.357)
+texture = ExtResource("3_qhqgy")
+
 [node name="BulletStart" type="Node2D" parent="." unique_id=1295075917]
-position = Vector2(90, -2)
+position = Vector2(98, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1656051852]
 rotation = 1.5707964
@@ -31,6 +38,6 @@ shape = SubResource("CapsuleShape2D_qhqgy")
 [node name="KillBox" type="Area2D" parent="." unique_id=1987320295]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=1426337569]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=1475804395]
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_dqkch")
+shape = SubResource("CapsuleShape2D_g2els")
